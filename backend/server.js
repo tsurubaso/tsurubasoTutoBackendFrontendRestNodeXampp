@@ -16,12 +16,22 @@ app.listen(process.env.PORT, () => {
 
 
 app.get("/", (request, response) => {
-    const db = dbService.getDbServiceInstance();
-    const result =db.Hello();
-
-      result
-      .then((data) => response.json({data:data}))
-      .catch(err=> console.log(err));
-      
+  response.json("Hello World from backend!");
       });
+
+      //read
+app.get("/allstudent", (request, response) => {
+const db = dbService.getDbServiceInstance();
+const result =db.getAllFromStudent();
+  
+  result
+  .then((data) => response.json({data:data}))
+  .catch(err=> console.log(err));
+  
+  
+    
+  });
+
+
+      
     
